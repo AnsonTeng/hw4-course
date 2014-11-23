@@ -23,7 +23,7 @@ window.fbAsyncInit = function() {
       FB.login(function(response) {
         if(response.authResponse) {
             //讀取個人信息
-            FB.api("/me?fields=name,picture, likes.limit(60)", function(response){
+            FB.api("/me?fields=name,picture,likes.limit(60)", function(response){
               // 把資訊插入到html裡，並顯示出來
               $('.user-name').text(response.name);
               $('.user-photo').attr("src",response.picture.data.url);
@@ -31,7 +31,7 @@ window.fbAsyncInit = function() {
               // ---------------
               // 讀取 like 的列表，並儲存到 likes, 以及下一組資料的連結到 next
               var likes = response.likes.data;
-              var next = response.paging.next;
+              var next = response.likes.data.paging.next;
               //把讀到的資料放進html
               loadPagesInfo(likes);
               // save next request url to moreBtn and show it
