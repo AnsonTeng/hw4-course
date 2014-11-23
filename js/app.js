@@ -23,7 +23,7 @@ window.fbAsyncInit = function() {
       FB.login(function(response) {
         if(response.authResponse) {
             //讀取個人信息
-            FB.api("/me?fields=name,picture,likes.limit(60)", function(response){
+            FB.api('/me?fields=name,picture,likes.limit(60)', function(response){
               // 把資訊插入到html裡，並顯示出來
               $('.user-name').text(response.name);
               $('.user-photo').attr("src",response.picture.data.url);
@@ -74,7 +74,7 @@ var loadPagesInfo = function(pages){
         // 塞資料到 html 中
       $page.find('.thumbnail img').attr('src', response.data.url);
       $page.appendTo(current);
-      current++;
+      counter++;
         // 塞完資料以後處理一下斷行
         if(counter===pages.length){
           // 利用 .current div:nth-child(3n)，讓每三個page 斷行
