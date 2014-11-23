@@ -70,11 +70,11 @@ var loadPagesInfo = function(pages){
     $page.find('.title a').text(response.name).attr('href',response.link);
     $page.find('.about').text(response.about);
     $page.find('.likes').text(response.likes);
-    FB.api( item.id+'/picture?type=large', function(response){
+    FB.api(item.id+'/picture?type=large', function(response){
         // 塞資料到 html 中
       $page.find('.thumbnail img').attr('src', response.data.url);
-      current++;
       $page.appendTo(current);
+      current++;
         // 塞完資料以後處理一下斷行
         if(counter===pages.length){
           // 利用 .current div:nth-child(3n)，讓每三個page 斷行
